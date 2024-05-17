@@ -1,6 +1,5 @@
 import React from 'react';
 import {View} from 'react-native';
-import PropTypes from 'prop-types';
 
 const CustomAvatar = (props) => {
   const {
@@ -22,11 +21,6 @@ const CustomAvatar = (props) => {
       {component}
     </View>
   );
-};
-
-CustomAvatar.propTypes = {
-  size: PropTypes.number,
-  component: PropTypes.any,
 };
 
 export default CustomAvatar;

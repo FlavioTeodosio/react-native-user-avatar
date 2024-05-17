@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {Image} from 'react-native';
 
 const ImageAvatar = (props) => {
@@ -22,13 +21,6 @@ const ImageAvatar = (props) => {
   };
 
   return React.createElement(Image, newProps);
-};
-
-ImageAvatar.propTypes = {
-  src: PropTypes.string,
-  size: PropTypes.number,
-  imageStyle: PropTypes.object,
-  borderRadius: PropTypes.number,
 };
 
 export default ImageAvatar;

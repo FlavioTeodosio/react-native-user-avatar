@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import PropTypes from 'prop-types';
 import {View} from 'react-native';
 import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
 
@@ -73,21 +72,6 @@ const UserAvatar = (props) => {
       {inner}
     </View>
   );
-};
-
-UserAvatar.propTypes = {
-  name: PropTypes.string,
-  src: PropTypes.string,
-  bgColor: PropTypes.string,
-  bgColors: PropTypes.array,
-  textColor: PropTypes.string,
-  size: PropTypes.number,
-  imageStyle: PropTypes.object,
-  style: PropTypes.object,
-  textStyle: PropTypes.object,
-  borderRadius: PropTypes.number,
-  component: PropTypes.any,
-  noUpperCase: PropTypes.bool,
 };
 
 UserAvatar.defaultProps = {

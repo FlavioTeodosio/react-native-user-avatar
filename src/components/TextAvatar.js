@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import PropTypes from 'prop-types';
 import {abbr} from '../helpers';
 
 const TextAvatar = (props) => {
@@ -36,15 +35,6 @@ const TextAvatar = (props) => {
       </Text>}
     </View>
   );
-};
-
-TextAvatar.propTypes = {
-  name: PropTypes.string,
-  size: PropTypes.number,
-  textColor: PropTypes.string,
-  noUpperCase: PropTypes.bool,
-  textStyle: PropTypes.object,
-  style: PropTypes.object,
 };
 
 export default TextAvatar;
