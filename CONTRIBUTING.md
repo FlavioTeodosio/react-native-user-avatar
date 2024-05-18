@@ -50,7 +50,7 @@ After you're done, you can run `yarn example start` in the project root (or `exp
 
 ## Reporting issues
 
-You can report issues on the [bug tracker](https://github.com/avishayil/react-native-user-avatar/issues). Please follow the issue template when opening an issue.
+You can report issues on the [bug tracker](https://github.com/FlavioTeodosio/react-native-user-avatar-fabric/issues). Please follow the issue template when opening an issue.
 
 ## License
 

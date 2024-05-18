@@ -1,7 +1,7 @@
-# React Native User Avatar
+# React Native User Avatar Fabric
 
-[![npm version](https://img.shields.io/npm/v/react-native-user-avatar.svg?style=flat-square)](https://www.npmjs.com/package/react-native-user-avatar)
-[![npm downloads](https://img.shields.io/npm/dm/react-native-user-avatar.svg?style=flat-square)](https://www.npmjs.com/package/react-native-user-avatar)
+[![npm version](https://img.shields.io/npm/v/react-native-user-avatar.svg?style=flat-square)](https://www.npmjs.com/package/react-native-user-avatar-fabric)
+[![npm downloads](https://img.shields.io/npm/dm/react-native-user-avatar.svg?style=flat-square)](https://www.npmjs.com/package/react-native-user-avatar-fabric)
 [![Build Status](https://travis-ci.org/avishayil/react-native-user-avatar.svg?branch=master)](https://travis-ci.org/avishayil/react-native-user-avatar)
 
 ![Coverage lines](./badges/badge-lines.svg)
@@ -12,13 +12,15 @@
 A bare-bones user avatar display with support for falling back to using the user's initials on a colored background as the avatar.
 Based on the great library for React: https://github.com/wbinnssmith/react-user-avatar, and ported to React Native.
 
+However, this Fork has been duly changed to the New Architecture (Fabric) on React-Native 
+
 iOS Screenshot             | Android Screenshot
 :-------------------------:|:-------------------------:
 <img src="./screenshots/ios.png" title="iOS Screenshot" width="250"> | <img src="./screenshots/android.png" title="Android Screenshot" width="250">
 
 ## Installation
 
-`npm install --save react-native-user-avatar` or `yarn add react-native-user-avatar`
+`npm install --save react-native-user-avatar-fabric` or `yarn add react-native-user-avatar-fabric`
 
 ## Usage
 
@@ -29,7 +31,7 @@ color for the same user's name every time.
 ### UserAvatar Component
 
 ```jsx
-import UserAvatar from 'react-native-user-avatar';
+import UserAvatar from 'react-native-user-avatar-fabric';
 
 const App: () => React$Node = () => {
   return (
@@ -67,7 +69,7 @@ Contributions are welcome. Please see [CONTRIBUTING.md](CONTRIBUTING.md) if you 
 
 ## Credits
 
-[@wbinnssmith](https://github.com/wbinnssmith/) for creating [https://github.com/wbinnssmith/react-user-avatar](react-user-avatar)
+[@wbinnssmith](https://github.com/wbinnssmith/) for creating [https://github.com/wbinnssmith/react-user-avatar](react-user-avatar) and changed to the New Architecture (FAbric) on React-native by [@FlavioTeodosio](https://github.com/FlavioTeodosio/) [https://github.com/FlavioTeodosio/react-native-user-avatar-fabric](react-native-user-avatar-fabric)
 
 ## License
 

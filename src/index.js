@@ -1,20 +1,16 @@
-import React, {useState, useEffect} from 'react';
-import {View} from 'react-native';
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
+import React, {useState, useEffect} from 'react'
+import {View} from 'react-native'
+import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
 
-import {
-  TextAvatar,
-  ImageAvatar,
-  CustomAvatar,
-} from './components/'; ;
+import {TextAvatar, ImageAvatar, CustomAvatar} from './components/'
 import {
   fetchImage,
   getContainerStyle,
   generateBackgroundStyle,
   generateBackgroundColor,
-} from './helpers';
+} from './helpers'
 
-const UserAvatar = (props) => {
+const UserAvatar = props => {
   let {
     name,
     src,
@@ -28,68 +24,54 @@ const UserAvatar = (props) => {
     borderRadius,
     component,
     noUpperCase,
-  } = props;
+  } = props
 
   // Validations
-  if (typeof (size) === 'string') {
-    console.warn('size prop should be a number');
-    size = parseInt(size);
+  if (typeof size === 'string') {
+    console.warn('size prop should be a number')
+    size = parseInt(size)
   }
 
   const [inner, setInner] = useState(
-      <TextAvatar
-        textColor={textColor}
-        size={size}
-        name={name}
-        noUpperCase={noUpperCase}
-        textStyle={textStyle}
-      />);
+    <TextAvatar
+      textColor={textColor}
+      size={size}
+      name={name}
+      noUpperCase={noUpperCase}
+      textStyle={textStyle}
+    />,
+  )
 
   useEffect(() => {
     if (component) {
-      setInner(<CustomAvatar size={size} component={component} />);
+      setInner(<CustomAvatar size={size} component={component} />)
     } else if (src) {
-      const controller = new (AbortController || window.AbortController)();
-      fetchImage(src, {signal: controller.signal}).then((isImage) => {
+      const controller = new (AbortController || window.AbortController)()
+      fetchImage(src, {signal: controller.signal}).then(isImage => {
         if (isImage) {
           setInner(
-              <ImageAvatar src={src} size={size} imageStyle={imageStyle} />,
-          );
+            <ImageAvatar src={src} size={size} imageStyle={imageStyle} />,
+          )
         }
-      });
-      return () => controller.abort();
+      })
+      return () => controller.abort()
     } else {
-      setInner(<TextAvatar textColor={textColor} size={size} name={name} />);
+      setInner(<TextAvatar textColor={textColor} size={size} name={name} />)
     }
-  }, [textColor, size, name, component, imageStyle, src]);
+  }, [textColor, size, name, component, imageStyle, src])
 
   return (
-    <View style={[
-      generateBackgroundStyle(name, bgColor, bgColors),
-      getContainerStyle(size, src, borderRadius),
-      style]}
-    >
+    <View
+      style={[
+        generateBackgroundStyle(name, bgColor, bgColors),
+        getContainerStyle(size, src, borderRadius),
+        style,
+      ]}>
       {inner}
     </View>
-  );
-};
+  )
+}
 
-UserAvatar.defaultProps = {
-  size: 32,
-  textColor: '#fff',
-  name: 'John Doe',
-  bgColors: [ // from https://flatuicolors.com/
-    '#2ecc71', // emerald
-    '#3498db', // peter river
-    '#8e44ad', // wisteria
-    '#e67e22', // carrot
-    '#e74c3c', // alizarin
-    '#1abc9c', // turquoise
-    '#2c3e50', // midnight blue
-  ],
-  textStyle: {},
-};
+export {generateBackgroundColor}
 
-export {generateBackgroundColor};
-
-export default UserAvatar;
+export default UserAvatar

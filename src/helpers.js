@@ -1,85 +1,86 @@
-import {Platform} from 'react-native';
-import initials from 'initials';
-import fetch from 'node-fetch';
+import {Platform} from 'react-native'
+import initials from 'initials'
+import fetch from 'node-fetch'
 
 export const abbr = (name, noUpperCase) => {
-  let abbr = initials(name, noUpperCase);
+  let abbr = initials(name, noUpperCase)
   if (name.startsWith('+')) {
-    abbr = `+${ abbr }`;
+    abbr = `+${abbr}`
   }
   if (!abbr) {
-    console.warn('Could not get abbr from name');
-    abbr = name;
+    console.warn('Could not get abbr from name')
+    abbr = name
   }
   if (abbr.length > 2) {
-    abbr = abbr.substring(0, 2);
+    abbr = abbr.substring(0, 2)
   }
   if (!noUpperCase) {
-    abbr = abbr.toUpperCase();
+    abbr = abbr.toUpperCase()
   }
-  return abbr;
-};
+  return abbr
+}
 
-export const sumChars = (str) => {
-  let sum = 0;
+export const sumChars = str => {
+  let sum = 0
   for (let i = 0; i < str.length; i++) {
-    sum += str.charCodeAt(i);
+    sum += str.charCodeAt(i)
   }
 
-  return sum;
-};
+  return sum
+}
 
 export const fetchImage = async (src, options) => {
   try {
-    const fetchCall = await fetch(src, options);
+    const fetchCall = await fetch(src, options)
     if (!fetchCall) {
-      return false;
+      return false
     }
-    const contentTypeHeader = Platform.OS === 'web' ?
-      fetchCall.headers.get('content-type') :
-      fetchCall.headers.map['content-type'];
+    const contentTypeHeader =
+      Platform.OS === 'web'
+        ? fetchCall.headers.get('content-type')
+        : fetchCall.headers.map['content-type']
     if (contentTypeHeader.startsWith('image/')) {
-      return true;
+      return true
     } else {
-      console.warn('Online fetched source is not a supported image');
-      return false;
+      console.warn('Online fetched source is not a supported image')
+      return false
     }
   } catch (err) {
-    console.warn('Error fetching source, falling back to initials', err);
-    return false;
+    console.warn('Error fetching source, falling back to initials', err)
+    return false
   }
-};
+}
 
 export const generateBackgroundStyle = (name, bgColor, bgColors) => {
-  let background;
+  let background
   if (bgColor) {
-    background = bgColor;
+    background = bgColor
   } else {
     // Pick a deterministic color from the list
-    const i = sumChars(name) % bgColors.length;
-    background = bgColors[i];
+    const i = sumChars(name) % bgColors.length
+    background = bgColors[i]
   }
-  return {backgroundColor: background};
-};
+  return {backgroundColor: background}
+}
 
 export const generateBackgroundColor = (name, bgColor, bgColors) => {
-  let background;
+  let background
   if (bgColor) {
-    background = bgColor;
+    background = bgColor
   } else {
     // Pick a deterministic color from the list
-    const i = sumChars(name) % bgColors.length;
-    background = bgColors[i];
+    const i = sumChars(name) % bgColors.length
+    background = bgColors[i]
   }
-  return background;
-};
+  return background
+}
 
 export const getContainerStyle = (size, src, borderRadius) => {
   return {
-    borderRadius: borderRadius ? borderRadius : (size * 0.5),
+    borderRadius: borderRadius ? borderRadius : size * 0.5,
     borderWidth: src ? 0 : 1,
     borderColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
-  };
-};
+  }
+}
